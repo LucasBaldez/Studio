@@ -1,0 +1,34 @@
+{% extends 'base.html'%}
+
+{%block conteudo%}
+<h1 class="mt-5">Minha agenda</h1>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Sobrenome</th>
+              <th>Telefone</th>
+              <th>Categoria</th>
+              <th>Procedimento</th>
+              <th>Mostrar</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for contato in contatos%}
+              {% if contato.mostrar%}
+            <tr>
+              <td>
+                <a href="{% url 'ver_contato' contato.id %}"> {{contato.nome}}</a>
+              </td>
+              <td>{{contato.sobrenome}}</td>
+              <td>{{contato.telefone}}</td>
+              <td>{{contato.categoria}}</td>
+              <td>{{contato.procedimento}}</td>
+              <th>{{contato.mostrar}}</th>
+            </tr>
+                {% endif%}
+            {% endfor%}
+          </tbody>
+        </table>
+{% endblock%}
