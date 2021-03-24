@@ -1,5 +1,33 @@
 {% extends 'base.html'%}
 
 {% block conteudo %}
-dashboard
+
+<h1 class="mt-5">Dashboard Usuarios</h1>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Sobrenome</th>
+              <th>Email</th>
+              <th>Usuario</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for usuario in usuarios%}
+            <tr>
+              <td>
+                <a href="{% url 'ver_usuario' usuario.id %}"> {{usuario.nome}}</a>
+              </td>
+              <td>{{usuario.sobrenome}}</td>
+              <td>{{usuario.email}}</td>
+              <td>{{usuario.usuario}}</td>
+            </tr>
+            {% endfor%}
+          </tbody>
+        </table>
+
+
+
+
 {% endblock %}
