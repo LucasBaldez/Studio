@@ -1,0 +1,15 @@
+{% extends 'base.html'%}
+
+{%block conteudo%}
+ <h1 class="mt-5">{{usuario.nome}}</h1>
+        <dl>
+          <dt>ID</dt>
+          <dd>{{usuario.id}}</dd>
+
+          <dt>Telefone</dt>
+          <dd>{{usuario.telefone}}</dd>
+
+          <dt>E-mail</dt>
+          <dd>{{usuario.email}}</dd>
+        </dl>
+{% endblock%}
