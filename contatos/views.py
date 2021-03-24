@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import Http404
-from .models import Contato
+from .models import Contato, Procedimento
 from django.db.models import Q, Value
 from django.db.models.functions import Concat
 from django.contrib import messages
@@ -14,9 +14,11 @@ def index(request):
 
 def ver_contato(request, contato_id):
     ##contato = Contato.objects.get(id=contato_id)
-    contato = get_object_or_404(Contato,id=contato_id) #tratamento de erro se o ID não for encontrado
+    contato = get_object_or_404(Contato,id=contato_id) #tratamento de erro se o ID não for encontrado]
+    procedimentos = contato.procedimento.all() #pega todos os procedimentos do contato
     return render(request, 'contatos/ver_contato.html', {
-        'contato' : contato
+        'contato' : contato,
+        'procedimentos' : procedimentos
     })
 
 def busca(request):

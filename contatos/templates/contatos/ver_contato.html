@@ -19,6 +19,16 @@
           <dd>
            {{contato.descricao}}
           </dd>
+
+        <dt>Procedimentos</dt>
+        {% if procedimentos %}
+          <dt>
+          {% for procedimento in procedimentos %}
+            <dd>{{ procedimento }}</dd>
+          {% endfor %}
+          </dt>
+        {% endif %}
+
         </dl>
 
           <button type="button" class="btn btn-warning">Editar</button>
